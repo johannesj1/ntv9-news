@@ -20,7 +20,7 @@
         }
 
         header {
-            background-color: white;
+            background: url('bg.png') center center / cover no-repeat;
             border-bottom: 3px solid #1a56db;
             padding: 0 2rem;
         }
@@ -37,17 +37,18 @@
         #header-logo {
             height: 100px;
         }
-
-        nav a {
+nav a {
             text-decoration: none;
-            color: #111;
+            color: white;
             font-weight: 500;
             margin-left: 2rem;
             font-size: 0.95rem;
         }
 
-        nav a:hover { color: #1a56db; }
-
+        nav a:hover {
+            color: #60a5fa;
+        }
+nav
         nav a.active {
             color: #1a56db;
             font-weight: 700;
@@ -127,8 +128,8 @@
 
         #user-btn {
             background: none;
-            border: 1px solid #1a56db;
-            color: #111;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
             padding: 0.4rem 1rem;
             border-radius: 20px;
             cursor: pointer;
@@ -136,7 +137,9 @@
             font-weight: 500;
         }
 
-        #user-btn:hover { background: #f0f4ff; }
+        #user-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
 
         #dropdown {
             position: absolute;
