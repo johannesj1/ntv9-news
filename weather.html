@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N9 - Weather</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #111;
+            min-height: 100vh;
+        }
+
+        /* Header */
+    header {
+        background-color: white;
+        border-bottom: 3px solid #1a56db;
+        padding: 0 2rem;
+    }
+
+    #header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    #header-logo {
+        height: 100px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #111;
+        font-weight: 500;
+        margin-left: 2rem;
+        font-size: 0.95rem;
+    }
+
+    nav a:hover {
+        color: #1a56db;
+    }
+
+    nav a.active {
+        color: #1a56db;
+        font-weight: 700;
+    }
+
+    /* Weather Content */
+    #weather-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+    }
+
+    #weather-container h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+    }
+
+    #weather-week {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+
+    #weather-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1rem;
+    }
+
+    .weather-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.2rem 0.8rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .weather-card h3 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+    }
+
+    .day-date {
+        font-size: 0.75rem;
+        color: #888;
+        margin-bottom: 0.8rem;
+    }
+
+    .weather-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .temp-high {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #e53e3e;
+    }
+
+    .temp-low {
+        font-size: 0.95rem;
+        color: #3182ce;
+        margin-top: 0.2rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .wind {
+        font-size: 0.78rem;
+        color: #555;
+    }
+
+    /* User Menu */
+    #user-menu {
+        position: relative;
+        margin-left: 2rem;
+    }
+
+    #user-btn {
+        background: none;
+        border: 1px solid #1a56db;
+        color: #111;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    #user-btn:hover {
+        background: #f0f4ff;
+    }
+
+    #dropdown {
+        position: absolute;
+        right: 0;
+        top: 110%;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        min-width: 150px;
+        z-index: 100;
+    }
+
+    #dropdown button {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: #e53e3e;
+        font-weight: 500;
+    }
+
+    #dropdown button:hover {
+        background: #fff5f5;
+        border-radius: 8px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+     <header>
+        <div id="header-inner">
+            <a href="index.html"><img src="N9.png"alt="N9 Logo" id="header-logo"></a>
+            <nav>
+         <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">News</a>
+    <a href="weather.html" class="active">Weather</a>
+    <div id="user-menu">
+        <button id="user-btn" onclick="toggleDropdown()"></button>
+        <div id="dropdown" style="display:none;">
+            <button onclick="signOut()">Sign out</button>
+        </div>
+    </div>
+</nav>
+     </header>
+<!-- Weather Content -->
+<div id="weather-container">
+    <h1>Weather — Turku</h1>
+    <p id="weather-week">9.–15.3.2026</p>
+    <div id="weather-grid">
+
+        <!-- Monday -->
+        <div class="weather-card">
+            <h3>Monday</h3>
+            <p class="day-date">9.3.</p>
+            <div class="weather-icon">☀️</div>
+            <p class="temp-high">+6°</p>
+            <p class="temp-low">-1°</p>
+            <p class="wind">💨 4–9 m/s</p>
+        </div>
+
+        <!-- Tuesday -->
+        <div class="weather-card">
+            <h3>Tuesday</h3>
+            <p class="day-date">10.3.</p>
+            <div class="weather-icon">☁️</div>
+            <p class="temp-high">+3°</p>
+            <p class="temp-low">-1°</p>
+            <p class="wind">💨 4–8 m/s</p>
+        </div>
+
+        <!-- Wednesday -->
+        <div class="weather-card">
+            <h3>Wednesday</h3>
+            <p class="day-date">11.3.</p>
+            <div class="weather-icon">🌤️</div>
+            <p class="temp-high">+7°</p>
+            <p class="temp-low">0°</p>
+            <p class="wind">💨 3–7 m/s</p>
+        </div>
+
+        <!-- Thursday -->
+        <div class="weather-card">
+            <h3>Thursday</h3>
+            <p class="day-date">12.3.</p>
+            <div class="weather-icon">☁️</div>
+            <p class="temp-high">+7°</p>
+            <p class="temp-low">0°</p>
+            <p class="wind">💨 3–7 m/s</p>
+        </div>
+
+        <!-- Friday -->
+        <div class="weather-card">
+            <h3>Friday</h3>
+            <p class="day-date">13.3.</p>
+            <div class="weather-icon">☁️</div>
+            <p class="temp-high">+6°</p>
+            <p class="temp-low">+1°</p>
+            <p class="wind">💨 4–8 m/s</p>
+        </div>
+
+        <!-- Saturday -->
+        <div class="weather-card">
+            <h3>Saturday</h3>
+            <p class="day-date">14.3.</p>
+            <div class="weather-icon">🌤️</div>
+            <p class="temp-high">+7°</p>
+            <p class="temp-low">+2°</p>
+            <p class="wind">💨 9–18 m/s</p>
+        </div>
+
+        <!-- Sunday -->
+        <div class="weather-card">
+            <h3>Sunday</h3>
+            <p class="day-date">15.3.</p>
+            <div class="weather-icon">🌧️</div>
+            <p class="temp-high">+8°</p>
+            <p class="temp-low">+1°</p>
+            <p class="wind">💨 10–21 m/s</p>
+        </div>
+
+    </div>
+
+    <script>
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+        window.location.href = 'index.html';
+    }
+</script>
+
+<script>
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+        window.location.href = 'index.html';
+    }
+
+    const savedUsername = sessionStorage.getItem('username');
+    if (savedUsername) {
+        document.getElementById('user-btn').textContent = '👤 ' + savedUsername;
+    }
+
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdown');
+        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function signOut() {
+        sessionStorage.removeItem('loggedIn');
+        sessionStorage.removeItem('username');
+        window.location.href = 'index.html';
+    }
+</script>
+
+</body>
+</html>

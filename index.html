@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTV9 News</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            height: 100%;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'inter', sans-serif;
+        }
+
+          body {
+        background-color: #0a0a1a;
+        color: #111;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+        /* Login Screen */
+#login-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0a0a1a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    #login-box {
+        background: #111827;
+        padding: 40px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 320px;
+        border: 1px solid #1e3a5f;
+    }
+
+    #login-logo {
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    #login-box h2 {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    #login-box input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #2a4a7f;
+        background: #1a2540;
+        color: white;
+        font-size: 0.95rem;
+    }
+
+    #login-box button {
+        width: 100%;
+        padding: 12px;
+        background: #1a56db;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    #login-box button:hover {
+        background: #1e429f;
+    }
+
+    #error-msg {
+        color: #f05252;
+        font-size: 0.85rem;
+        display: none;
+    }
+
+    /* Header */
+    header {
+        background-color: white;
+        border-bottom: 3px solid #1a56db;
+        padding: 0 2rem;
+    }
+
+    #header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    #header-logo {
+        height: 100px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #111;
+        font-weight: 500;
+        margin-left: 2rem;
+        font-size: 0.95rem;
+    }
+
+    nav a:hover {
+        color: #1a56db;
+    }
+
+    /* Main Content */
+    #content {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+    }
+
+    /* Video Section */
+    #video-section {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        padding: 1rem;
+    }
+
+    #video-section video {
+        width: 100%;
+        border-radius: 6px;
+    }
+
+    #video-section h2 {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    #video-section p {
+        margin-top: 0.5rem;
+        color: #555;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Article Section */
+    #article-section {
+        background: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+    }
+
+    #article-section h2 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .article-date {
+        color: #888;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    #article-section p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    /* User Menu */
+    #user-menu {
+        position: relative;
+        margin-left: 2rem;
+    }
+
+    #user-btn {
+        background: none;
+        border: 1px solid #1a56db;
+        color: #111;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    #user-btn:hover {
+        background: #f0f4ff;
+    }
+
+    #dropdown {
+        position: absolute;
+        right: 0;
+        top: 110%;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        min-width: 150px;
+        z-index: 100;
+    }
+
+    #dropdown button {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: #e53e3e;
+        font-weight: 500;
+    }
+
+    #dropdown button:hover {
+        background: #fff5f5;
+        border-radius: 8px;
+    }
+    </style>
+</head>
+<body>
+<!--Login Screen-->
+<div id="login-screen">
+    <div id="login-box">
+        <img src="N9.png" alt="N9 Logo" id="login-logo">
+        <h2>Sign in to N9</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Sign in</button>
+        <p id="error-msg">Incorrect username or password</p>
+    </div>
+</div>
+
+<!-- Main Site (hidden until login) -->
+ <div id="main-site" style="display:none;">
+<!-- Header -->
+ <header>
+    <div id="header-inner">
+        <img src="N9.png" alt="N9 Logo" id="header-logo">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="weather.html">Weather</a>
+            <div id="user-menu">
+                <button id="user-btn" onclick="toggleDropdown()"></button>
+                <div id="dropdown" style="display:none;">
+                    <button onclick="signOut()">Sign out</button>
+                </div>
+            </div>
+         </nav>
+    </div>
+</header>
+<!-- Main Content -->
+ <div id="content">
+
+    <!-- Video Section -->
+     <div id="video-section">
+        <video controls>
+            <source src="TESTI.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h2>News and weather</h2>
+        <p>Daily news and next weeks weather</p>
+ </div>
+
+ <!-- Article Section -->
+  <div id="article-section">
+    <h2>AI Boom Drives Global RAM Shortage</h2>
+    <p class="article-date">March 9, 2026</p>
+        <p>The explosive growth of artificial intelligence applications has triggered a global shortage of RAM chips, sending prices soaring and leaving manufacturers struggling to keep up with demand.</p>
+        <p>Major AI companies such as OpenAI, Google and Microsoft are consuming enormous amounts of memory in their data centers, leaving less supply available for everyday consumers and smaller businesses.</p>
+        <p>Analysts predict the shortage could last well into 2027, with RAM prices expected to rise by up to 40% over the next six months.</p>
+    </div>
+
+</div>
+
+ <script>
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    if ((username === 'ntv9admin' && password === 'chigo42G') || (username === 'opettaja' && password === '7320')) {
+        sessionStorage.setItem('loggedIn', 'true');
+        sessionStorage.setItem('username', username)
+        document.getElementById('user-btn').textContent = '👤 ' + username;
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('main-site').style.display = 'block';
+    } else {
+        document.getElementById('error-msg').style.display = 'block';
+    }
+}
+
+function toggleDropdown() {
+    const dropdown = document.getElementById('dropdown');
+    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+}
+
+function signOut() {
+    sessionStorage.removeItem('loggedIn');
+    sessionStorage.removeItem('username');
+    window.location.href = 'index.html';
+}
+
+//Set username on button
+
+
+// Check if already logged in
+if (sessionStorage.getItem('loggedIn') === 'true') {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('main-site').style.display = 'block';
+    const savedUsername = sessionStorage.getItem('username');
+    if (savedUsername) {
+        document.getElementById('user-btn').textContent = '👤 ' + savedUsername;
+    }
+}
+</script>
+
+</body>
+</html>
