@@ -6,236 +6,328 @@
     <title>NTV9 News</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        html {
+    html, body {
             height: 100%;
+            margin: 0;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'inter', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
-          body {
-        background-color: #0a0a1a;
-        color: #111;
-        min-height: 100vh;
-        margin: 0;
-    }
+        body {
+            background-color: #0a0a1a;
+            color: #111;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
         /* Login Screen */
-#login-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #0a0a1a;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
+        #login-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a0a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-    #login-box {
-        background: #111827;
-        padding: 40px;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        width: 320px;
-        border: 1px solid #1e3a5f;
-    }
+        #login-box {
+            background: #111827;
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 320px;
+            border: 1px solid #1e3a5f;
+        }
 
-    #login-logo {
-        width: 150px;
-        margin-bottom: 10px;
-    }
+        #login-logo {
+            width: 150px;
+            margin-bottom: 10px;
+        }
 
-    #login-box h2 {
-        color: white;
-        font-size: 1.2rem;
-        font-weight: 600;
-    }
+        #login-box h2 {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
 
-    #login-box input {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #2a4a7f;
-        background: #1a2540;
-        color: white;
-        font-size: 0.95rem;
-    }
+        #login-box input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #2a4a7f;
+            background: #1a2540;
+            color: white;
+            font-size: 0.95rem;
+        }
 
-    #login-box button {
-        width: 100%;
-        padding: 12px;
-        background: #1a56db;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-    }
+        #login-box button {
+            width: 100%;
+            padding: 12px;
+            background: #1a56db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
 
-    #login-box button:hover {
-        background: #1e429f;
-    }
+        #login-box button:hover {
+            background: #1e429f;
+        }
 
-    #error-msg {
-        color: #f05252;
-        font-size: 0.85rem;
-        display: none;
-    }
+        #error-msg {
+            color: #f05252;
+            font-size: 0.85rem;
+            display: none;
+        }
 
-    /* Header */
-    header {
-        background-color: white;
-        border-bottom: 3px solid #1a56db;
-        padding: 0 2rem;
-    }
+        /* Main Site */
+        #main-site {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background-color: #0d1117;
+        }
 
-    #header-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 0;
-    }
+        /* Header */
+        header {
+            background-color: white;
+            border-bottom: 3px solid #1a56db;
+            padding: 0 2rem;
+        }
 
-    #header-logo {
-        height: 100px;
-    }
+        #header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
 
-    nav a {
-        text-decoration: none;
-        color: #111;
-        font-weight: 500;
-        margin-left: 2rem;
-        font-size: 0.95rem;
-    }
+        #header-logo {
+            height: 100px;
+        }
 
-    nav a:hover {
-        color: #1a56db;
-    }
+        nav a {
+            text-decoration: none;
+            color: #111;
+            font-weight: 500;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+        }
 
-    /* Main Content */
-    #content {
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 2rem;
-    }
+        nav a:hover {
+            color: #1a56db;
+        }
 
-    /* Video Section */
-    #video-section {
-        background: white;
-        border-radius: 8px;
-        overflow: hidden;
-        padding: 1rem;
-    }
+        #datetime {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 400;
+        }
 
-    #video-section video {
-        width: 100%;
-        border-radius: 6px;
-    }
+        /* Main Content */
+        #content {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-content: start;
+        }
 
-    #video-section h2 {
-        margin-top: 1rem;
-        font-size: 1.2rem;
-        font-weight: 700;
-    }
+        /* Video Section */
+        #video-section {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 1rem;
+        }
 
-    #video-section p {
-        margin-top: 0.5rem;
-        color: #555;
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
+        #video-section video {
+            width: 100%;
+            border-radius: 6px;
+        }
 
-    /* Article Section */
-    #article-section {
-        background: white;
-        border-radius: 8px;
-        padding: 1.5rem;
-    }
+        #video-section h2 {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
 
-    #article-section h2 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
+        #video-section p {
+            margin-top: 0.5rem;
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
 
-    .article-date {
-        color: #888;
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-    }
+        /* Article Section */
+        #article-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
 
-    #article-section p {
-        font-size: 0.95rem;
-        line-height: 1.7;
-        color: #333;
-        margin-bottom: 1rem;
-    }
+        #article-section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
 
-    /* User Menu */
-    #user-menu {
-        position: relative;
-        margin-left: 2rem;
-    }
+        .article-date {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
 
-    #user-btn {
-        background: none;
-        border: 1px solid #1a56db;
-        color: #111;
-        padding: 0.4rem 1rem;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
+        #article-section p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 1rem;
+        }
 
-    #user-btn:hover {
-        background: #f0f4ff;
-    }
+        /* User Menu */
+        #user-menu {
+            position: relative;
+            margin-left: 2rem;
+        }
 
-    #dropdown {
-        position: absolute;
-        right: 0;
-        top: 110%;
-        background: white;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        min-width: 150px;
-        z-index: 100;
-    }
+        #user-btn {
+            background: none;
+            border: 1px solid #1a56db;
+            color: #111;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
 
-    #dropdown button {
-        width: 100%;
-        padding: 0.8rem 1rem;
-        background: none;
-        border: none;
-        text-align: left;
-        cursor: pointer;
-        font-size: 0.9rem;
-        color: #e53e3e;
-        font-weight: 500;
-    }
+        #user-btn:hover {
+            background: #f0f4ff;
+        }
 
-    #dropdown button:hover {
-        background: #fff5f5;
-        border-radius: 8px;
-    }
-    </style>
+        #dropdown {
+            position: absolute;
+            right: 0;
+            top: 110%;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 150px;
+            z-index: 100;
+        }
+
+        #dropdown button {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #e53e3e;
+            font-weight: 500;
+        }
+
+        #dropdown button:hover {
+            background: #fff5f5;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: white;
+            margin-top: auto;
+            padding: 2rem;
+        }
+
+        #footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        #footer-brands {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .footer-brand-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: #aaa;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .footer-logo {
+            height: 50px;
+        }
+
+        .footer-text-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+
+        #footer-inner p {
+            color: #888;
+            font-size: 0.82rem;
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            #content {
+                grid-template-columns: 1fr;
+            }
+
+            #header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+
+            #user-menu {
+                margin-left: 0;
+            }
+        }
+</style>
 </head>
 <body>
 <!--Login Screen-->
@@ -256,6 +348,7 @@
  <header>
     <div id="header-inner">
         <img src="N9.png" alt="N9 Logo" id="header-logo">
+        <div id="datetime"></div>
         <nav>
             <a href="#">Home</a>
             <a href="#">News</a>
@@ -285,25 +378,58 @@
  <!-- Article Section -->
   <div id="article-section">
     <h2>AI Boom Drives Global RAM Shortage</h2>
-    <p class="article-date">March 9, 2026</p>
+    <p class="article-date">March 6, 2026</p>
         <p>The explosive growth of artificial intelligence applications has triggered a global shortage of RAM chips, sending prices soaring and leaving manufacturers struggling to keep up with demand.</p>
         <p>Major AI companies such as OpenAI, Google and Microsoft are consuming enormous amounts of memory in their data centers, leaving less supply available for everyday consumers and smaller businesses.</p>
         <p>Analysts predict the shortage could last well into 2027, with RAM prices expected to rise by up to 40% over the next six months.</p>
     </div>
+</div>
+
+    <!-- Footer -->
+<footer>
+    <div id="footer-inner">
+        <div id="footer-brands">
+            <div class="footer-brand-item">
+                <img src="N9.png" alt="N9 Logo" class="footer-logo">
+                <span>N9</span>
+            </div>
+            <div class="footer-brand-item">
+                <img src="NTV9.png" alt="NTV9 Logo" class="footer-logo">
+                <span>NTV9</span>
+            </div>
+            <div class="footer-brand-item">
+                <span class="footer-text-logo">News9</span>
+            </div>
+        </div>
+        <p>© 2026 NewsTV9. All rights reserved.</p>
+        <p>NTV9 — Bringing you the news that matters.</p>
+    </div>
+</footer>
 
 </div>
 
  <script>
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const date = now.toLocaleDateString('en-GB', options);
+    const time = now.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    document.getElementById('datetime').textContent = date + ' — ' + time;
+}
+
+setInterval(updateDateTime, 1000);
+
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     
     if ((username === 'ntv9admin' && password === 'chigo42G') || (username === 'opettaja' && password === '7320')) {
         sessionStorage.setItem('loggedIn', 'true');
-        sessionStorage.setItem('username', username)
+        sessionStorage.setItem('username', username);
         document.getElementById('user-btn').textContent = '👤 ' + username;
         document.getElementById('login-screen').style.display = 'none';
         document.getElementById('main-site').style.display = 'block';
+        updateDateTime();
     } else {
         document.getElementById('error-msg').style.display = 'block';
     }
@@ -320,9 +446,6 @@ function signOut() {
     window.location.href = 'index.html';
 }
 
-//Set username on button
-
-
 // Check if already logged in
 if (sessionStorage.getItem('loggedIn') === 'true') {
     document.getElementById('login-screen').style.display = 'none';
@@ -331,6 +454,7 @@ if (sessionStorage.getItem('loggedIn') === 'true') {
     if (savedUsername) {
         document.getElementById('user-btn').textContent = '👤 ' + savedUsername;
     }
+    updateDateTime();
 }
 </script>
 
