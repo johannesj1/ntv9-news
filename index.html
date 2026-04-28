@@ -328,8 +328,7 @@
                 margin-left: 0;
             }
         }
-    
-        
+
       .cookie-banner {
         position: fixed;
         left: 16px;
@@ -349,31 +348,30 @@
         box-shadow: 0 10px 30px rgba(0,0,0,.35);
         backdrop-filter: blur(6px);
         font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
+      }
 
-    .cookie-banner a { color: #9ad1ff; }
+      .cookie-banner a { color: #9ad1ff; }
 
-    .cookie-banner__text { font-size: 14px; line-height: 1.3; }
-    .cookie-banner__actions { display: flex; gap: 10px; }
+      .cookie-banner__text { font-size: 14px; line-height: 1.3; }
+      .cookie-banner__actions { display: flex; gap: 10px; }
 
-    .cookie-btn {
+      .cookie-btn {
         border: 0;
         border-radius: 10px;
         padding: 10px 12px;
         cursor: pointer;
         font-weight: 600;
-    }
+      }
 
-    .cookie-btn--primary { background: #2f7dff; color: white; }
-    .cookie-btn--secondary { background: rgba(255,255,255,0.15); color: white; }
+      .cookie-btn--primary { background: #2f7dff; color: white; }
+      .cookie-btn--secondary { background: rgba(255,255,255,0.15); color: white; }
 
-    @media (max-width: 520px) {
+      @media (max-width: 520px) {
         .cookie-banner { flex-direction: column; align-items: stretch; }
         .cookie-banner__actions { justify-content: stretch; }
         .cookie-btn { width: 100%; }
-    }
-        
-</style>
+      }
+    </style>
 </head>
 <body>
 <!--Login Screen-->
@@ -425,23 +423,24 @@
   <div id="article-section">
     <h2>AI Boom Drives Global RAM Shortage</h2>
     <p class="article-date">March 6, 2026</p>
-        <p>The explosive growth of artificial intelligence applications has triggered a global shortage of RAM chips, sending prices soaring and leaving manufacturers struggling to keep up with demand.</p>
-        <p>Major AI companies such as OpenAI, Google and Microsoft are consuming enormous amounts of memory in their data centers, leaving less supply available for everyday consumers and smaller businesses.</p>
+        <p>The explosive growth of artificial intelligence applications has triggered a global shortage of RAM chips, sending prices soaring and leaving manufacturers struggling to keep up with d[...]
+        <p>Major AI companies such as OpenAI, Google and Microsoft are consuming enormous amounts of memory in their data centers, leaving less supply available for everyday consumers and smaller[...]
         <p>Analysts predict the shortage could last well into 2027, with RAM prices expected to rise by up to 40% over the next six months.</p>
     </div>
-</div>
-    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice">
-    <div class="cookie-banner__text">
-        This site uses cookies (and similar storage) to improve your experience.
-        <a href="#" id="cookie-learn-more">Learn more</a>.
-    </div>
-    <div class="cookie-banner__actions">
-        <button id="cookie-decline" class="cookie-btn cookie-btn--secondary" type="button">Decline</button>
-        <button id="cookie-accept" class="cookie-btn cookie-btn--primary" type="button">Accept</button>
+ </div>
 
-    </div>
+ <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <div class="cookie-banner__text">
+    This site uses cookies (and similar storage) to improve your experience.
+    <a href="#" id="cookie-learn-more">Learn more</a>.
+  </div>
+  <div class="cookie-banner__actions">
+    <button id="cookie-decline" class="cookie-btn cookie-btn--secondary" type="button">Decline</button>
+    <button id="cookie-accept" class="cookie-btn cookie-btn--primary" type="button">Accept</button>
+  </div>
+ </div>
 
-    <!-- Footer -->
+ <!-- Footer -->
 <footer>
     <div id="footer-inner">
         <div id="footer-brands">
@@ -541,7 +540,7 @@ if (sessionStorage.getItem('loggedIn') === 'true') {
 
     learnMore && learnMore.addEventListener("click", function (e) {
       e.preventDefault();
-      alert("This site stores your cookie choice in your browser (localStorage).");
+      alert("This site stores your cookie choice in your browser (localStorage). ");
     });
   })();
 </script>
